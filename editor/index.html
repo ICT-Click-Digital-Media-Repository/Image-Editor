@@ -1,0 +1,167 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Image Editor</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <!-- Font Awesome CDN link -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="container disable">
+            <div class="title-top">
+                <h3>Image Editor</h3>
+            </div>
+            <div class="wrapper">
+                <div class="editor-panel">
+                    <div class="editOptions">
+                        <button id="filter" class="selected">Filter</button>
+                        <button id="crop">Crop</button>
+                        <button id="rotate">Rotate</button>
+                    </div>
+
+                    <div class="crop" id="cropItems">
+                        <label class="title">Crop</label>
+                        <div class="options">
+                            <button id="one" class="active">1 X 1</button>
+                            <button id="two">4 X 3</button>
+                            <button id="three">16 X 9</button>
+                            <button id="four">Free</button>
+                        </div>
+                        <div class="cropSlider" id="cropSlider1">
+                            <div class="cropButtons">
+                                <div class="crop-info">
+                                    <p class="name">Aspect Ratio</p>
+                                </div>
+                                <button id="applyCrop" onclick="cropImage()">
+                                    Apply
+                                </button>
+                            </div>
+
+                            <div class="crop-info">
+                                <p class="name">Width</p>
+                                <p class="value">100%</p>
+                            </div>
+                            <input type="range" value="100" min="0" max="100" />
+                        </div>
+                        <div
+                            class="cropSlider"
+                            id="cropSlider2"
+                            style="display: none">
+                            <div class="crop-info">
+                                <p class="name">Height</p>
+                                <p class="value">100%</p>
+                            </div>
+                            <input type="range" value="100" min="0" max="100" />
+                        </div>
+                    </div>
+
+                    <div class="filter" id="filterBox">
+                        <label class="title">Filters</label>
+                        <div class="options">
+                            <button id="brightness" class="active">
+                                Brightness
+                            </button>
+                            <button id="saturation">Saturation</button>
+                            <button id="inversion">Inversion</button>
+                            <button id="grayscale">Grayscale</button>
+                        </div>
+                        <div class="slider">
+                            <div class="filter-info">
+                                <p class="name">Brighteness</p>
+                                <p class="value">100%</p>
+                            </div>
+                            <input type="range" value="100" min="0" max="200" />
+                        </div>
+                    </div>
+                    <div class="rotate" id="rotateBox">
+                        <label class="title">Rotate & Flip</label>
+                        <div class="options">
+                            <button id="left">
+                                <!-- <i
+                                class="fa-solid fa-rotate-left"></i> -->
+                                <img
+                                    src="https://media.geeksforgeeks.org/wp-content/uploads/20231212171006/rotate-left.png"
+                                    alt="" />
+                            </button>
+                            <button id="right">
+                                <img
+                                    src="https://media.geeksforgeeks.org/wp-content/uploads/20231212172841/rotate-right.png"
+                                    alt="" />
+                            </button>
+                            <button id="horizontal">
+                                <img
+                                    src="https://media.geeksforgeeks.org/wp-content/uploads/20231212173054/flip.png"
+                                    alt="" />
+                            </button>
+                            <button id="vertical">
+                                <img
+                                    src="https://media.geeksforgeeks.org/wp-content/uploads/20231212181314/vertical.png"
+                                    alt="" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-img" id="canvasContainer">
+                    <input
+                        type="file"
+                        id="inpImage"
+                        class="file-input"
+                        accept="image/*"
+                        hidden />
+
+                    <img
+                        id="cropCanvas"
+                        src="https://r2.easyimg.io/g4vz5dkyv/upload.png"
+                        alt="preview-img" />
+                    <div id="cropBox">
+                        <div id="topLeftHandle" class="resize-handle"></div>
+                        <div id="topRightHandle" class="resize-handle"></div>
+                        <div id="bottomLeftHandle" class="resize-handle"></div>
+                        <div id="bottomRightHandle" class="resize-handle"></div>
+                    </div>
+                    <p>Image Preview</p>
+                    <!-- <button class="choose-img">Choose Image</button> -->
+                </div>
+            </div>
+            <div class="controls">
+                <button class="reset-filter">Reset Filters</button>
+                <div class="row">
+                    <input
+                        type="file"
+                        class="file-input"
+                        accept="image/*"
+                        hidden />
+                    <button class="choose-img">
+                        <i class="fas fa-upload"> </i>&nbsp; Upload Image
+                    </button>
+                    <button class="save-img">
+                        <i class="fas fa-save"></i>&nbsp; Save Image
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+
+        <!-- Footer Section 
+  <div class="footer" id="copyright">
+    &copy; 2004 -<span id="year"></span> Image Editor - ICT Click Digital Media.
+    <script>
+      // Get the current year
+      var currentYear = new Date().getFullYear();
+      // Set the current year in the footer
+      document.getElementById("year").textContent = currentYear;
+    </script> -->
+    </body>
+</html>
